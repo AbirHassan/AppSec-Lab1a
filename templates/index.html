@@ -26,13 +26,14 @@
 </style> 
 <html>
     <head>
-        <title>Image ReSizer!!!</title>
+        <title>Squarify</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+        <link rel="shortcut icon" href="/images/Squarify.jpeg" type="image/x-icon" />
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -47,8 +48,8 @@
                     <h1 class="display-4">    
                     <font color = "white">
                     <center>
-                        <h1>Welcome to my wacky app!</h1>  
-                        <p class="lead">Upload an image, and see it resized to a square here!</p>
+                        <h1>Welcome to Squarify!</h1>  
+                        <h2 class="lead">Upload an image, and see it resized to a square </h2>
                     </center>   
                     </font> 
                     </h1>
@@ -62,7 +63,7 @@
                         <input type="file" class="form-control-file" id="fileupload" name="file" accept="image/*"/>
                     </div>
                     <div class="form-group">
-                        Size of photo's dimensions: <input type="number" id="filedimension" name="size" min="200" max="1920"/>
+                        Size of photo's dimensions: <input type="number" id="filedimension" name="size" min="200" max="1920" required/>
                     </div>
                     <input type="submit" class="btn btn-dark btn-block  btn-lg round" id="submit" value="Upload Image" />
                 </form>
@@ -94,6 +95,9 @@
         </ul>
         -->
     </body>
+    <footer>
+        <p><strike> Not affiliated with Spotify in any way shape or form </strike></p>
+    </footer>
     
     <script>
     function showResizedImage(evt) {
