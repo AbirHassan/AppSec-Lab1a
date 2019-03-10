@@ -86,33 +86,41 @@
                     
                 </tbody>
             </table>
-        <!--<h1> Click this button to see all of your uploaded images resized as squares</h1>
-        <button id="show"> Show Images </button>
-        <ul id="imgs" hidden="true">
-            {% for i in images %}
-            <li> <img src = "/images/{{i}}"> <a> Click here to delete </a> </li>
-            {% endfor %}
-        </ul>
-        -->
     </body>
     <footer>
         <p><strike> Not affiliated with Spotify in any way shape or form </strike></p>
     </footer>
     
     <script>
-    function showResizedImage(evt) {
-        const imgs = document.getElementById("imgs");
-        imgs.hidden = !imgs.hidden;
+    function delImg(event) {
+        let imgs = document.getElementsByTagName("img");
+        const imageName = event.target.src; //name of image
+        let deletionItem = ""
+        //console.log(imageName);
+        for (let i = 0; i < imgs.length; i++) {
+            if(imgs[i].src == event.target.src) {
+                deletionItem = event.target.parentNode.parentNode.parentNode; //item to be deleted
+                //console.log(deletionItem); //item to be deleted
+            }
+        }
+        if(deletionItem == '') {
+            console.log("Not found");
+        } else {
+            deletionItem.remove();
+            //it's here that I would make an AJAX request to delete the image from the server, but idk how to do that
+        }
     }
 
     function main() {
-        const b = document.getElementById('show');
-        b.addEventListener('click', showResizedImage);
+        let imgs = document.getElementsByTagName("img");
+        //let imgSrcs = [];
 
-        const imgs = document.getElementById("imgs").children;
-        console.log(imgs);
-        
+        for (let i = 0; i < imgs.length; i++) {
+            //imgSrcs.push(imgs[i].src);
+            imgs[i].addEventListener("click", delImg);
+        }
     }
+
     document.addEventListener("DOMContentLoaded", main);
     </script>
 </html>

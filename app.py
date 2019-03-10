@@ -13,7 +13,7 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-def make_square(im, thumbnail_size=(200,200)):
+def make_square(im, thumbnail_size):
         background = Image.new('RGB', thumbnail_size, "black")    
         source_image = im.convert("RGB")
         source_image.thumbnail(thumbnail_size)
@@ -48,7 +48,8 @@ def resize():
             #source: https://stackoverflow.com/questions/44231209/resize-rectangular-image-to-square-keeping-ratio-and-fill-background-with-black/44231784
             file_dimension = request.form['size']
             if file_dimension == '':
-                file_dimension = 200
+                file_dimension = '200'
+            print(file_dimension)
             test_image = Image.open("images/" + filename)
             img = make_square(test_image, (int(file_dimension), int(file_dimension)))
             img.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
