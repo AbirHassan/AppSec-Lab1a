@@ -1,0 +1,114 @@
+<!doctype html>
+<style>
+        .btn-lg.round {
+        border-radius: 24px;
+        }
+        img {
+          max-width: 100%;
+          height: auto;
+          width: auto\9; /* ie8 */
+          } 
+        table {
+          font-family: arial, sans-serif;
+          width: 100%;
+          margin: auto;
+        }
+      
+        td, th, thead {
+            padding: 5px;
+            text-align:center; 
+            vertical-align:middle;
+        }
+        tr:nth-child(2n) {
+          background-color: #dfffdd;
+        }
+        
+</style> 
+<html>
+    <head>
+        <title>Image ReSizer!!!</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    </head>
+    <body style="background-color:white">
+            <div class="jumbotron jumbotron-fluid" style = "background-color:black;">
+                <div class="container">
+                    <h1 class="display-4">    
+                    <font color = "white">
+                    <center>
+                        <h1>Welcome to my wacky app!</h1>  
+                        <p class="lead">Upload an image, and see it resized to a square here!</p>
+                    </center>   
+                    </font> 
+                    </h1>
+                </div>
+            </div>
+
+
+        <div class = "container"> 
+                <form id="uploadimg" enctype="multipart/form-data" method="POST" action="resize">
+                    <div class="form-group">
+                        <input type="file" class="form-control-file" id="fileupload" name="file" accept="image/*"/>
+                    </div>
+                    <div class="form-group">
+                        Size of photo's dimensions: <input type="number" id="filedimension" name="size" min="200" max="1920"/>
+                    </div>
+                    <input type="submit" class="btn btn-dark btn-block  btn-lg round" id="submit" value="Upload Image" />
+                </form>
+        </div>
+
+        <br> </br>
+        <table id="example" class="display" width="100%" data-page-length="10" data-order="[[ 1, &quot;asc&quot; ]]">
+            <thead>
+                <tr>
+                    <th>Images</th>
+                </tr>
+            </thead>
+            <tbody>
+        {% for i in images %}
+            <tr>   
+                <td> <div style = "margin:auto;"><img src="/images/{{i}}"> </div>  
+                </td> 
+            </tr> 
+        {% endfor %}
+                    
+                </tbody>
+            </table>
+        <!--<h1> Click this button to see all of your uploaded images resized as squares</h1>
+        <button id="show"> Show Images </button>
+        <ul id="imgs" hidden="true">
+            {% for i in images %}
+            <li> <img src = "/images/{{i}}"> <a> Click here to delete </a> </li>
+            {% endfor %}
+        </ul>
+        -->
+    </body>
+    
+    <script>
+    function showResizedImage(evt) {
+        const imgs = document.getElementById("imgs");
+        imgs.hidden = !imgs.hidden;
+    }
+
+    function main() {
+        const b = document.getElementById('show');
+        b.addEventListener('click', showResizedImage);
+
+        const imgs = document.getElementById("imgs").children;
+        console.log(imgs);
+        
+    }
+    document.addEventListener("DOMContentLoaded", main);
+    </script>
+</html>
