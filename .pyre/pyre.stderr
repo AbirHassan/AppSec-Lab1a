@@ -1,0 +1,15 @@
+2019-03-27 12:25:57,758 INFO No binary specified, looking for `pyre.bin` in PATH
+2019-03-27 12:25:57,760 INFO Found: `/home/abir/.local/bin/pyre.bin`
+2019-03-27 12:25:57,763 INFO No typeshed specified, looking for it
+2019-03-27 12:25:57,767 DEBUG Trying with: `/home/abir/.local/lib/python3.6/site-packages/pyre_check/pyre_check/typeshed/`
+2019-03-27 12:25:57,769 DEBUG Trying with: `/home/abir/.local/lib/python3.6/site-packages/pyre_check/typeshed/`
+2019-03-27 12:25:57,771 DEBUG Trying with: `/home/abir/.local/lib/python3.6/pyre_check/typeshed/`
+2019-03-27 12:25:57,772 DEBUG Trying with: `/home/abir/.local/lib/pyre_check/typeshed/`
+2019-03-27 12:25:57,773 INFO Found: `/home/abir/.local/lib/pyre_check/typeshed/`
+2019-03-27 12:25:57,848 WARNING Exception encountered trying to find source files in the analysis directory: `Command '['find', '/mnt/hgfs/Shared/AppSec-Lab1a/.pyre/shared_analysis_directory_23206', '(', '-name', '*.py', '-or', '-name', '*.pyi', ')', '(', '-type', 'f', '-or', '-type', 'l', ')', '-print']' returned non-zero exit status 1.`
+
+2019-03-27 12:25:57,855 WARNING Starting with an empty set of tracked files.
+
+2019-03-27 12:25:57,856 INFO Constructing shared directory `/mnt/hgfs/Shared/AppSec-Lab1a/.pyre/shared_analysis_directory_23206`
+2019-03-27 12:25:57,857 ERROR No targets or source directories to analyze.
+
